@@ -4,6 +4,11 @@ require("dotenv").config();
 const socketIo = require('socket.io');
 const cors = require("cors");
 
+const apiRoutes = require("./api/index");
+const { azureListPermissions } = require("./libs/azure");
+const logger = require("./libs/logger");
+
+
 app.use(cors({ origin: '*' }))
 
 const server = http.createServer(app);
@@ -14,9 +19,6 @@ const io = socketIo(server, {
     }
 });
 
-const apiRoutes = require("./api/index");
-const { azureListPermissions } = require("./libs/azure");
-const logger = require("./libs/logger");
 
 app.get("/health", (req, res, next) => {
     res.json({
@@ -31,6 +33,7 @@ app.use((err, req, res, next) => {
     logger.error(err.stack);
     res.status(500).send('Internal server error!');
 });
+
 // WebSocket connection for real-time updates
 io.on('connection', (socket) => {
     console.log('New client connected');
