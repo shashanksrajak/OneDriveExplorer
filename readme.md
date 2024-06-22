@@ -13,7 +13,7 @@ The project contains -
 
 ### Pre-requisites
 
-- Ensure [all pre-requisites](../../../lib/msal-react/README.md#prerequisites) have been completed to run `@azure/msal-react`.
+- Ensure [all pre-requisites](https://learn.microsoft.com/en-us/graph/auth-register-app-v2) have been completed to use microsft graph API and authentication.
 
 - Install node.js if needed (<https://nodejs.org/en/>).
 
